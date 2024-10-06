@@ -1,3 +1,4 @@
+// Start of Selection
 package funcs
 
 import (
@@ -52,8 +53,6 @@ func HandleInfo(w http.ResponseWriter, r *http.Request) {
 	
 	adjustedBalance := float64(user["balance"].(int32)) * 0.00449986 
 	user["converted_balance"] = adjustedBalance
-
-
 
 	global.RespondWithJson(w, http.StatusOK, map[string]interface{}{
 		"ok":   true,

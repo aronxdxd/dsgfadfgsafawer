@@ -31,6 +31,9 @@ func run() error {
 	mux.HandleFunc("/clicker", funcs.HandleClicker)
 	mux.HandleFunc("/buy_toques", modifies.HandleBuyToques)
 	mux.HandleFunc("/top", funcs.HandleTop)
+	mux.HandleFunc("/get_avatar", func(res http.ResponseWriter, req *http.Request) {
+        funcs.GetAvatar(res, req)
+    })
 
 	// Create a new CORS handler
 	c := cors.New(cors.Options{

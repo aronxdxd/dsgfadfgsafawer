@@ -16,6 +16,7 @@ type TopUser struct {
 	Place     int    `json:"place"`
 	FirstName string `json:"first_name"`
 	Balance   int32  `json:"balance"`
+	AvatarURL string `json:"avatar_url"`
 }
 
 type TopResult struct {
@@ -76,6 +77,7 @@ func processUsers(users []map[string]interface{}, targetUserID int) TopResult {
 			Place:     position,
 			FirstName: firstName,
 			Balance:   balance,
+			AvatarURL: user["avatar_url"].(string),
 		}
 		log.Println(user["user_id"], targetUserID)
 		if fmt.Sprint(user["user_id"]) == strconv.Itoa(targetUserID) {
